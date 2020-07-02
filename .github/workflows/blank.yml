@@ -46,12 +46,4 @@ jobs:
         cs install --add-channel https://raw.githubusercontent.com/tmtsoftware/apps/master/apps.json
 
     - name: Install Kotlin
-      run: |
-        curl -s https://get.sdkman.io | bash
-        source "/home/runner/.sdkman/bin/sdkman-init.sh"
-        sdk install kotlin
-        sudo ln -s $(which kotlinc) /usr/local/bin/kotlinc
-
-    - name: Tests
-      run: sbt test:test
-
+      run: cs launch org.jetbrains.kotlin:kotlin-compiler-embeddable:1.3.71 -- -version
